@@ -17,7 +17,9 @@ static size_t	get_digits(int n)
 	size_t	i;
 
 	i = 0;
-	while (n != 0)
+	if (n == 0)
+		i++;
+	while (n)
 	{
 		n /= 10;
 		i++;
@@ -41,7 +43,9 @@ char	*ft_itoa(int n)
 	str_num = (char *)malloc(sizeof(char) * (digits + 1));
 	if (str_num == NULL)
 		return (NULL);
-	*(str_num + digits) = 0;
+	*(str_num + digits) = '\0';
+	if (n == 0)
+		*str_num = 0;
 	while (digits--)
 	{
 		*(str_num + digits) = num % 10 + '0';
@@ -51,3 +55,11 @@ char	*ft_itoa(int n)
 		*(str_num + 0) = '-';
 	return (str_num);
 }
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	printf("%s\n", ft_itoa(-623));
+// 	printf("%s\n", ft_itoa(-156));
+// 	printf("%s\n", ft_itoa(0));
+// }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_split.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuhayrap <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -72,13 +72,19 @@ static void	fill(char **res, char const *s, char c, int nb_words)
 	res[nb_words] = 0;
 }
 
-char	**ft_strsplit(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**res;
 	int		nb_words;
 
 	if (!s)
 		return (NULL);
+	if (*s == '\0')
+	{
+		res = (char **)malloc(1);
+		*res = NULL;
+		return (res);
+	}
 	nb_words = words_count(s, c);
 	res = (char **)malloc(sizeof(char *) * (nb_words + 1));
 	if (res == NULL)
