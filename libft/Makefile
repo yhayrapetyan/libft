@@ -32,7 +32,8 @@ SRC = ft_atoi.c \
 		ft_split.c \
 		ft_strtrim.c \
 		ft_substr.c \
-		ft_lstadd_back.c \
+
+BONUSSRC = ft_lstadd_back.c \
 		ft_lstadd_front.c \
 		ft_lstclear.c \
 		ft_lstdelone.c \
@@ -41,7 +42,9 @@ SRC = ft_atoi.c \
 		ft_lstmap.c \
 		ft_lstnew.c \
 		ft_lstsize.c
+
 OBJS = $(SRC:.c=.o)
+BONUSOBJS = $(BONUSSRC:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
@@ -58,8 +61,12 @@ $(NAME): $(OBJS)
 .c.o:
 	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
+bonus: $(BONUSOBJS)
+	@$(AR) $(NAME) $(BONUSOBJS)
+	@$(LIB_INDEX) $(NAME)
+
 clean:
-	@$(RM) $(OBJS)
+	@$(RM) $(OBJS) $(BONUSOBJS)
 
 fclean: clean
 	@$(RM) $(NAME)
