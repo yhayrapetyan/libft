@@ -61,8 +61,8 @@ $(NAME): $(OBJS)
 .c.o:
 	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-bonus: $(BONUSOBJS)
-	@$(AR) $(NAME) $(BONUSOBJS)
+bonus: $(BONUSOBJS) $(OBJS)
+	@$(AR) $(NAME) $(BONUSOBJS) $(OBJS)
 	@$(LIB_INDEX) $(NAME)
 
 clean:
