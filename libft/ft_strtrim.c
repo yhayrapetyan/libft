@@ -26,21 +26,21 @@ static int	is_in_set(char const ch, char const *set)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*ch;
 	int		i;
 	int		len;
 
-	if (s == NULL)
+	if (s1 == NULL)
 		return (NULL);
 	i = 0;
-	while (s[i] && is_in_set(s[i], set))
+	while (s1[i] && is_in_set(s1[i], set))
 		i++;
-	len = ft_strlen(s) - 1;
-	while (len > 0 && is_in_set(s[len], set))
+	len = ft_strlen(s1) - 1;
+	while (len > 0 && is_in_set(s1[len], set))
 		len--;
-	if (len <= i)
+	if (len < i)
 	{
 		ch = (char *)malloc(1);
 		ch[0] = '\0';
@@ -49,6 +49,6 @@ char	*ft_strtrim(char const *s, char const *set)
 	ch = (char *)malloc(sizeof(char) * (len - i + 2));
 	if (ch == NULL)
 		return (NULL);
-	ft_strlcpy(ch, &s[i], len - i + 2);
+	ft_strlcpy(ch, &s1[i], len - i + 2);
 	return (ch);
 }

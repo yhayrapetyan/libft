@@ -12,40 +12,26 @@
 
 #include "libft.h"
 
-static int	substring_len(const char *search_in, const char *to_find,
-	size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int	i;
+	size_t		i;
+	size_t		j;
 
 	i = 0;
-	while (to_find[i] != '\0' && i <= (int)len)
+	if (*needle == '\0' || needle == NULL)
+		return ((char *)haystack);
+	if (haystack == NULL && len == 0)
+		return (NULL);
+	while (haystack[i] != '\0' && i < len)
 	{
-		if (search_in[i] != to_find[i])
-			return (0);
-		i++;
-	}
-	return (i);
-}
-
-char	*ft_strnstr(const char *str, const char *to_find, size_t len)
-{
-	int	i;
-
-	i = 0;
-	if ((!str || !to_find) && len == 0)
-		return (0);
-	if (to_find[i] == '\0')
-		return ((char *)str);
-	while (str[i] != '\0' && i < (int)(len - 1))
-	{
-		if (str[i] == to_find[0])
+		j = 0;
+		while (needle[j] == haystack[i + j] && i + j < len)
 		{
-			if (substring_len(str + i, to_find, len) != 0)
-				return ((char *)(str + i));
-			else
-				break ;
+			if (needle[j + 1] == '\0')
+				return ((char *)haystack + i);
+			j++;
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
