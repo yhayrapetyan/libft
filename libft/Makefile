@@ -31,7 +31,7 @@ SRC = ft_atoi.c \
 		ft_strmapi.c \
 		ft_split.c \
 		ft_strtrim.c \
-		ft_substr.c \
+		ft_substr.c
 
 BONUSSRC = ft_lstadd_back.c \
 		ft_lstadd_front.c \
@@ -48,7 +48,7 @@ BONUSOBJS = $(BONUSSRC:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
-RM = rm -r
+RM = rm -f
 AR = ar rc
 LIB_INDEX = ranlib
 
@@ -73,4 +73,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

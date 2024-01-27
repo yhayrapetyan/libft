@@ -6,7 +6,7 @@
 /*   By: yuhayrap <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 14:29:05 by yuhayrap          #+#    #+#             */
-/*   Updated: 2024/01/11 16:21:21 by yuhayrap         ###   ########.fr       */
+/*   Updated: 2024/01/26 10:36:52 by yuhayrap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	if (*s == '\0')
 	{
-		res = (char **)malloc(1);
+		res = (char **)malloc(sizeof(char *));
 		*res = NULL;
 		return (res);
 	}

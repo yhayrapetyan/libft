@@ -6,7 +6,7 @@
 /*   By: yuhayrap <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:01:53 by yuhayrap          #+#    #+#             */
-/*   Updated: 2024/01/12 17:01:55 by yuhayrap         ###   ########.fr       */
+/*   Updated: 2024/01/23 12:29:38 by yuhayrap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*res;
 
-	if (count && size && count > (UINT_MAX / size))
-		return (NULL);
 	res = malloc(count * size);
 	if (res == NULL)
 		return (NULL);
